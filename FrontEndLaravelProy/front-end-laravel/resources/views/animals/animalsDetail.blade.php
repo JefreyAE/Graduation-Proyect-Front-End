@@ -4,7 +4,7 @@
     <section id="frontend"> 
         <h1 class="titulo">Detalles del animal</h1>
         <div class="form" id='formDetailAnimal'>
-            <h2>Información genera</h2>
+            <h2>Información general</h2>
             @if(!empty($animal))
                 <form class="form_data" method="POST" action="#">
                     <label for='nickname'>Apodo:</label>
