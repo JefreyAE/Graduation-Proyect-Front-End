@@ -16,17 +16,12 @@ class MainController extends Controller
        $notification = new Notifications();
        $response = $notification->getListNotificationsActive($token);
        
-       return view('main.mainIndex',['listActive'=> $response['listActive'],
+       return view('notifications.notificationsIndex',['listActive'=> $response['listActive'],
                                      'type' => $type,
                                      'userName' => $user->name
                ]);
-        
-        
-        
-        
-        
+
         //return view('main.main');
-        
         
     }
 }

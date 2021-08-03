@@ -8,8 +8,8 @@
 
 @section('content')
     <div class="clearfix"></div>
-    <div id="content">
-        <div id="sectionCentral">
+    <div id="content" class="row">
+        <div id="sectionCentral" class="col-md-10">
             @if(Request::is('animals/*'))
                 @yield('animals')
             @endif 
@@ -31,14 +31,19 @@
             @if(Request::is('user/*'))
                 @yield('user')
             @endif
-            @if(Request::is('main/index'))
-                @yield('mainIndex')
+            @if(Request::is('statistics/*'))
+                @yield('statistics')
+            @endif
+            @if(Request::is('errors/*'))
+                @yield('errors')
+            @endif
+            @if(Request::is('main/*'))
+                @yield('notifications')
             @endif
         </div>  
     </div>
     <div class="clearfix"></div>
 @stop
 @section('footer')
-    <div class="clearfix"></div>
     @include('includes.footer')
 @stop

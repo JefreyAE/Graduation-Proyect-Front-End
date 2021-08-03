@@ -1,10 +1,10 @@
 @extends('main.main')
 @section('mainIndex')
-    <h1 id="welcome">
+    <h1 id="welcome" class="row">
         Bienvenid@:  {{$userName ?? ''}}
     </h1>
     @if(!empty($listActive))
-        <section id="frontend"> 
+        <section id="frontend" class="row"> 
             <h1 class="titulo">Tienes las siguentes notificaciones activas</h1>
             <div class="list">
                 <table class="table" >

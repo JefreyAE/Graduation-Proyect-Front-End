@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class FrontAuthMiddleware
-{
+class FrontAuthMiddleware {
+
     /**
      * Handle an incoming request.
      *
@@ -13,25 +13,25 @@ class FrontAuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next) 
-    {
+    public function handle($request, Closure $next) {
         $jwtAuth = new \App\Helpers\JwtAuth();
-        
-        if(session()->has('token')){
+
+        if (session()->has('token')) {
             $token = session('token');
-        }else{
+        } else {
             return redirect('/');
         }
-        
-        if(is_null($token)){
+
+        if (is_null($token)) {
             return redirect('/');
-        }else{
+        } else {
             $checkToken = $jwtAuth->checkToken($token);
-            if($checkToken){  
+            if ($checkToken) {
                 return $next($request);
-            }else{
+            } else {
                 return redirect('/');
             }
         }
     }
+
 }

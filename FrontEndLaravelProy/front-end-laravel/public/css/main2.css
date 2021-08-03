@@ -1,3 +1,5 @@
+
+
 * Estilos generales *
 
 *{
@@ -5,10 +7,17 @@
     margin: 0px;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body{
     background-image: url("../img/paven.png");
     margin: 0px;
+    margin-bottom: 40px;
 }
+
 input[type="number"]
 {
     -webkit-appearance: textfield !important;
@@ -19,7 +28,12 @@ input[type="number"]
 /* Enlaces */
 
 a{
-    color: #529125;
+    color: #6dc032;
+    text-decoration: none;
+}
+
+table a{
+    color: #509027;
     text-decoration: none;
 }
 
@@ -47,6 +61,16 @@ a:hover{
 
 /* Formularios */
 
+#content #sectionCentral section #form-detail-update .input-detail-update{
+    width: 35% !important;
+    display: inline-block !important;
+}
+
+#btnUpdateAnimal{
+    margin-top: 0px !important;
+}
+
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -64,13 +88,13 @@ select:focus{
     border: 1px solid #70b231;
     color: black;
 }
-
-input[type="button"]:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-button:hover{
+/*
+#content input[type="button"]:hover,
+#content input[type="submit"]:hover,
+#content input[type="reset"]:hover,
+#content button:hover{
     box-shadow: 0px 0px 2px gray;
-
+    background-color: #5d9629;
 }
 input[type="button"]:active,
 input[type="submit"]:active,
@@ -80,32 +104,37 @@ button:active{
     text-shadow: 0px 0px 1px #ccc;
 }
 
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button{
+#content input[type="button"],
+#content input[type="submit"],
+#content input[type="reset"],
+#content button{
     display: block;
     border-radius: 2px;
     border: 1px solid green;
     cursor: pointer;
-    width: 60px;
+    width: 60%;
     padding: 3px;
     background-color: #70b231;
     color: white;
-}
+    margin: 0px auto;
 
+}
+*/
+
+body .container-fluid{
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
 
 /* Cabecera */
 
 #header{
-    min-width: 1024px;
     width: 100%;
-    height: 250px;
     margin: 0px auto;
     padding-top: 2px;
     padding-bottom: 2px;
     padding: 1px;
-    color: gray;
+    color: rgb(49, 49, 63);
     transition: all 300ms;
 }
 
@@ -126,18 +155,17 @@ button{
     width: 140px;
 }
 #companyName{
-    border: 5px solid #529125;
-    width: 65%;
-    border-radius: 100px;
-    background-color: gainsboro;
+    border-top: 1px solid #529125;
+    border-bottom: 1px solid #529125;
+    width: 100%;
+    background-color: rgb(230, 230, 230);;
     margin: 0px auto;
-    box-shadow: 0px 2px 1px #333333, 0px 2px 5px #333333;
+    box-shadow: 0px 2px 1px #333333, 0px 2px 5px #333333, 0px -2px 1px #333333, 0px -2px 5px #333333;
     margin-top: 10px;
 }
 
 #header h1{
     text-align: center;
-    font-size: 35px;
     color: #70b231;
     font-family: "nevis";
     letter-spacing: 4px;
@@ -148,32 +176,37 @@ button{
 
 #companyName h1{
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
     color: #70b231;
     font-family: "nevis";
     letter-spacing: 4px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     text-shadow: 0px 2px 1px #333333;
     transition: all 300ms;
     line-height: 65px;
 }
 
+
+
 #header h1:hover{
-    text-shadow: 0px 2px 1px #333333, 0px 0px 4px #70b231;
+    
 }
 #header h1 a{
     color: #70b231
 }
 
-#welcome{
+#content #sectionCentral h1{
     color:#529125;
-    margin-top: 0px;
+    margin-top: 1rem;
+    font-size: 24px !important;
 }
+
+
 
 /* Barra Menu */
 
-#nav{
+/*#nav{
     width: 100%;
     background-color: #333333;
     color: white;
@@ -221,7 +254,7 @@ button{
 
 /* Menus desplegables */
 
-#nav > ul > li  > ul{
+/*#nav > ul > li  > ul{
     display: none;
     position: absolute;
     width: 300px;
@@ -266,14 +299,13 @@ button{
 }
 
 #nav > ul > li:hover > ul > li:hover{
-   box-shadow: 0px 0px 2px #ccc inset;
-   background-color: #ccc;
+    box-shadow: 0px 0px 2px #ccc inset;
+    background-color: #ccc;
 }
-
+*/
 
 /*Login*/
 #formLogin{
-    width: 25%;
 
     margin: 0px auto;
     margin-top: 5%;
@@ -283,79 +315,36 @@ button{
     padding: 20px;
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 50px;
     background-color: white;
     -webkit-box-shadow: 0px 6px 13px 2px rgba(0,0,0,0.49);
     -moz-box-shadow: 0px 6px 13px 2px rgba(0,0,0,0.49);
     box-shadow: 0px 6px 13px 2px rgba(0,0,0,0.49);
     display: block;
+    transition: all 300ms;
 }
 
-#formLogin input, #formLogin label, #formLogin h2{
-    margin-top: 10px;
-    display: inline-block;
-}
-
-#formLogin input[type="password"]{
-    color: rgb(142 146 146);
-    display: block;
-    height: 50px;
-    border-radius: 10px;
-    margin: 0px auto;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-    width: 60%;
-    margin-bottom: 15px;
-    border: 1px solid rgb(227, 227, 231);
-    -webkit-box-shadow: inset -1px 1px 1px 1px rgba(0,0,0,0.34);
-    -moz-box-shadow: inset -1px 1px 1px 1px rgba(0,0,0,0.34);
-    box-shadow: inset -1px 1px 1px 1px rgba(0,0,0,0.34);
-    padding-left: 22px;
-    background-color: rgb(241, 237, 237);
-    transition: 200ms;
-}
-#formLogin input[type="password"]:hover{
-    background-color: white;
-}
-#formLogin input[type="email"]:hover{
-    background-color: white;
-}
-#formLogin input[type="email"]{
-    color: rgb(142 146 146);
-    display: block;
-    transition: 200ms;
-    height: 50px;
-    border-radius: 10px;
-    margin: 0px auto;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-    width: 60%;
-    margin-bottom: 22px;
-    -webkit-box-shadow: inset -1px 1px 1px 1px rgba(0,0,0,0.34);
-    -moz-box-shadow: inset -1px 1px 1px 1px rgba(0,0,0,0.34);
-    box-shadow: inset -1px 1px 1px 1px rgba(0,0,0,0.34);
-    padding-left: 17px;
-    background-color: rgb(241, 237, 237);
-}
-#formLogin label{
-    width: 35%;
-    margin-left: 40px;
-}
 
 #formLogin h2{
     text-align: center;
     margin-bottom: 25px;
     display: block;
-    font-size: 30px;
+    font-size: 25px;
     color: #70b231;
     font-family: "nevis";
     letter-spacing: 1px;
     margin-top: 10px;
     text-shadow: 0px 1px 1px #333333;
 }
+
+
+
 #formLogin .error{
     text-align: center;
     margin-top: 5px;
+}
+
+#form-detail-update .error{
+    width: 100%;
 }
 
 #formLogin input[type="submit"]{
@@ -396,7 +385,7 @@ button{
 }
 /* /Formato de formularios */
 
-.form_data{
+/*.form_data{
     display:block;
 }
 
@@ -408,7 +397,7 @@ button{
     margin-left: 60px;
     height: 25px;
     font-size: 18px;
-    
+
 }
 .form_data input{
     padding-left: 6px;
@@ -416,8 +405,8 @@ button{
     width: 55%;
     margin-bottom: 15px;
     height: 25px;
-    font-size: 18px;
-   
+    font-size: 16px;
+
 }
 .form_data #mother{
     display: inline-block;
@@ -458,18 +447,19 @@ button{
 .form_data select{
     margin: 0px auto;
     width: 55%;
-    height: 30px;
+
     margin-bottom: 15px;
     padding-left: 6px;
-    font-size: 18px;
+    font-size: 16px;
 }
+*/
 
 /* Formato de tablas listas */
 .list{
     border-radius: 15px;
     min-height: 200px;
 }
-.table{
+/*.table{
     border: 1px solid lightgray;
     text-align: center;
     box-shadow: 2px 2px 2px 1px rgb(167, 187, 187);
@@ -489,21 +479,25 @@ button{
     padding: 3px;
 }
 /* top-left border-radius */
+/*
 .table tr:first-child th:first-child{
     border-top-left-radius: 10px;
 }
 
 /* top-right border-radius */
+/*
 .table tr:first-child th:last-child{
     border-top-right-radius: 10px;
 }
 
 /* bottom-left border-radius */
+/*
 .table tr:last-child td:first-child {
     border-bottom-left-radius: 10px;
 }
 
 /* bottom-right border-radius */
+/*
 .table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
@@ -532,7 +526,7 @@ button{
 /* Contenido */
 
 #content{
-    width: 80%;
+    /*width: 80%;*/
     margin: 0px auto;
     margin-bottom: 50px;
 }
@@ -541,7 +535,7 @@ button{
     float: none;
     clear: both;
 }
- 
+
 /* Formatos de barra lateral*/
 
 #aside, #frase{
@@ -640,11 +634,11 @@ button{
 }
 
 #sectionCentral .titulo{
-    font-size: 24px;
+    font-size: 18px !important;
     font-weight: normal;
     letter-spacing: 1xp;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 0px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 5px;
@@ -652,16 +646,54 @@ button{
     margin-top: -20px;
 }
 
+.statistics .titulo{
+    font-size: 18px !important;
+    font-weight: normal;
+    letter-spacing: 1xp;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+    font-family: "fajala";
+    margin-top: -20px;
+}
+
+#sectionCentral .titulo-2{
+    font-size: 1.3rem !important;
+    margin-top: 10px;
+}
+
 #sectionCentral section{
-    margin-top: 40px;
+    margin-top: 30px;
     background-color: white;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 4px #c9c9c9;
     color: #333333;
-    font-size: 16px;
+    font-size: 14px;
     overflow: hidden;
+
 }
+
+#content table  thead tr th {
+    text-align: center !important;
+    align-content: center !important;
+    vertical-align: middle !important;
+}
+#content .table th, #content .table td {
+    padding: 0.75rem;
+    vertical-align: middle !important; 
+    border-top: 1px solid #dee2e6;
+    text-align: center !important;
+    align-content: center !important;
+    vertical-align: middle !important;
+}
+
+#content .statistics .table th, #content .statistics .table td {
+    text-align: left !important;
+}
+
 
 #sectionCentral .article{
     margin: 10px;
@@ -734,7 +766,7 @@ button{
     margin: 0px auto;
     margin-top: 10px;
     transition: all 200ms; 
-    
+
 }
 #imgContainer img{
     width: 100%;
@@ -758,6 +790,15 @@ button{
     opacity: 1;
 }
 
+.carousel-img-height{
+    max-height: 320px !important;
+}
+
+table .btn-sm, .btn-group-sm > .btn {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.72rem;
+}
+
 @keyframes slide{
     0%{
         width: 50%;
@@ -766,6 +807,10 @@ button{
         width: 100%;
         background-image: url('../img/2.jpeg');
     }
+}
+
+body #container-all{
+    margin-bottom: 120px;
 }
 
 /* Pie de página */
@@ -779,7 +824,6 @@ button{
 
 #footer{
     width: 100%;
-   
     left:0px;
     margin: 0px auto;
     text-align: center;
@@ -792,9 +836,12 @@ button{
     font-size: 14px;
     box-shadow: 0px 0px 2px gray;
     min-height:50px;
-    position: relative;
+    position: absolute;
     bottom: 0;
+    height: 80px;
+    margin-top: 25px;
 }
+
 
 #footer #developer{
     line-height: 80px;
@@ -814,4 +861,401 @@ form>div:last-child {text-align:center;margin-top:10px;}
     text-align: center;
 }
 
+.table{
+    font-size: .875rem;
+}
+
+#content #history-table tr .column-head, #content #history-table tr .column-head{
+    width: 20% !important;
+    text-align: left !important;
+}
+
+#content .table th, #content .table td{
+    padding: 3px;
+}
+
+#content .offspring th, #content .table td{
+    padding: 2px !important;
+}
+
+.frontend{
+    margin: 0px !important;
+    margin-top: 15px !important;
+}
+
+#sectionCentral .card-body {
+    padding: 0.7rem !important;
+}
+
+/*Statistics tables*/
+#statisticsAuctions .table .gender{
+    width: 14% !important;
+}
+
+#statisticsAuctions .table .range{
+   text-align: center;
+   background-color: rgb(33 35 28 / 40%);
+   font-weight: bold;
+}
+
+#statisticsAuctions .table .date{
+    text-align: center;
+}
+
+#statisticsAuctions .table .striped1{
+    background-color: white;
+}
+
+#statisticsAuctions .table .striped2{
+    background-color: rgba(233, 231, 231, 0.459);
+}
+
+#content .statistics #statisticsAuctions .table tr td div,.statistics #statisticsAuctions .table tr th div{
+   padding: 0px !important;
+   border-left: 1px solid #dee2e6;
+   border-right: 1px solid #dee2e6;
+   border-top: 1px solid #dee2e6;
+   padding: 2px  !important;
+   padding-left: 5px  !important;
+}
+
+#content .statistics .table tr td, #content .statistics .table tr th{
+    padding: 3px !important;
+ }
+ 
+
+
+#content .statistics #statisticsAuctions .table tr td .lastPrices, .statistics #statisticsAuctions .table tr th .lastPrices{
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+
+#content .statistics #statisticsAuctions .table .date{
+    background-color: #c6e0f5;
+}
+
+.auctionName{
+    text-align: center;
+}
+
+.auctionsTable{
+    border: 0px !important;
+}
+
+#statisticsAuctions .table{
+    border: 0px !important;
+}
+
+#btnDeleteAnimal{
+    color: white;
+}
+
+#btnDeleteAnimal{
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+#btnDeleteAnimal:hover{
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+#form-detail-update .detailButtons{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+footer {
+    bottom:0 !important; z-index:999999 !important; 
+} 
+
+/* Responsive*/
+
+@media(max-width:1366px){
+    #content .table th, #content .table td{
+        padding: 4px;
+    }
+
+    .purchases{
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    
+}
+
+@media(max-width:1320px){
+    #formLogin h2{
+        font-size: 26px;
+    }
+    .table{
+        font-size: 14px;
+    }
+    
+}
+
+@media(max-width:1136px){
+    .type, .comision{
+        display: none;
+    }
+    .table{
+        padding: 0.1rem;
+        font-size: 12px;
+        line-height: 13px;
+    }
+}
+
+
+@media(max-width:1156px){
+    #companyName h1{
+        margin-top: 6px;
+        margin-bottom: 6px;
+        font-size: 35px;
+        line-height: 35px;
+    }
+    #formLogin h2{
+        font-size: 23px;
+    }
+    #formLogin input[type="button"],
+    #formLogin input[type="submit"],
+    #formLogin input[type="reset"],
+    #formLogin button{
+        width: 60%;
+        padding: 2px;
+        background-color: #70b231;
+        color: white;
+        font-size: 18px;
+        height: 45px;
+    }
+}
+
+@media(max-width:1090px){
+    #formLogin{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #formLogin h2{
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+}
+
+@media(max-width:1052px){
+    #content #sectionCentral h1{
+        color:#529125;
+        margin-top: 10px;
+        font-size: 18px !important;
+    }
+    #formLogin{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .table{
+        padding: 0.1rem;
+        font-size: 12px;
+        line-height: 13px;
+    }
+}
+
+
+@media(max-width:950px){
+    .offspring .btn-sm, .btn-group-sm > .btn {
+        padding: 0.1rem 0.2rem !important;
+        font-size: 0.72rem !important;
+        line-height: 1.1 !important;
+    }
+}
+
+@media(max-width:900px){
+    .table{
+        font-size: 11px;
+        line-height: 12px;
+        padding: 4px;
+    }
+    #content .table th, #content .table td{
+        padding: 4px;
+    }
+
+}
+
+@media(max-width:870px){
+    #formLogin{
+        width: 70%;
+    }
+    #formLogin input[type="button"],
+    #formLogin input[type="submit"],
+    #formLogin input[type="reset"],
+    #formLogin button{
+        width: 60%;
+        padding: 2px;
+        background-color: #70b231;
+        color: white;
+        font-size: 16px;
+        height: 40px;
+    }
+
+    .registration-number{
+        display: none;
+    }
+}
+
+@media(max-width:826px){
+    #sectionCentral section{
+        font-size: 11px;
+        margin-top: 10px;
+    }
+    #sectionCentral{
+        width: 100%;
+    }
+}
+
+@media(max-width:793px){
+    .row #formLogin h2{     
+        font-size: 19px !important;
+    }
+}
+
+@media(max-width:688px){
+    #sectionCentral section{
+        font-size: 10px;
+        margin-top: 2px;
+    }
+
+    .row #formLogin h2{     
+        font-size: 20px !important;
+    }
+
+    #content {
+        width: 95%;
+    }
+}
+
+@media(max-width:570px){
+   .animals{
+        font-size: 9px;
+   }
+}
+
+@media(max-width:540px){
+    #companyName h1 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+ }
+
+
+
+@media(max-width:528px){
+    #sectionCentral section{
+        margin-top: 2px;
+
+    }
+
+    #content {
+        width: 99%;
+    }
+}
+
+
+@media(max-width:510px){
+    #sectionCentral section{
+        margin-top: 0px;
+        font-size: 8px;
+        margin-left: 2px;
+    }
+    #content {
+        width: 100%;
+    }
+}
+
+
+
+@media(max-width:500px){
+    #companyName h1{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 28px;
+        line-height: 28px;
+    }
+    #form-detail-update span{
+        font-size: 0.6875rem;;
+    }
+}
+
+@media(max-width:480px){
+    .injectable-brand{
+        display: none;
+    }
+    #companyName h1 {
+        font-size: 25px;
+        line-height: 25px;
+    }
+}
+
+
+@media(max-width:462px){
+    #sectionCentral section{
+        margin-top: 0px;
+        font-size: 8px;
+        margin-left: 1px;
+        padding: 5px;
+    }
+
+    .table-sm th, .table-sm td {
+        padding: 1px !important;
+    }
+
+    div.wrap.col-md-12{
+        padding-right: 4px !important;
+        padding-left: 4px !important;
+    }
+
+    .offspring .btn-sm, .btn-group-sm > .btn {
+        padding: 0.1rem 0.1rem !important;
+        font-size: 0.5rem !important;
+        line-height: 1 !important;
+    }
+}
+
+
+@media(max-width:430px){
+
+    table .btn-sm, .btn-group-sm > .btn {
+        font-size: 0.5rem !important;
+        padding: 0px !important;
+    }
+    #companyName h1 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+
+@media(max-width:380px){
+
+    .animals{
+        font-size: 8px;
+    }
+    #form-detail-update span{
+        font-size: 0.5875rem;;
+    }
+
+}
+
+@media(max-width:355px){
+    #companyName h1 {
+        font-size: 18px;
+        line-height: 18px;
+    }
+}
+
+@media(max-width:337px){
+
+    .row #formLogin h2{     
+        font-size: 18px !important;
+    }
+
+}
 

@@ -7,16 +7,17 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Http;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
+
     use Notifiable;
+
     public $url;
 
     public function __construct() {
         $api = new \App\Helpers\Constants();
         $this->url = $api->url();
     }
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,48 +44,47 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-    public function register(){
+
+    public function register() {
         
     }
 
-    public function index(Request $request){
+    public function index(Request $request) {
         
     }
 
-    public function login( $email, $password){
+    public function login($email, $password) {
 
-        $response = Http::asForm()->post($this->url.'/api/user/login',[
-            'json'=>[
-                'email'   => $email,
-                'password'=> $password
+        $response = Http::asForm()->post($this->url . '/api/user/login', [
+            'json' => [
+                'email' => $email,
+                'password' => $password
             ]
-        ]); 
-        /*$response = Http::asForm()->post('http://api-rest-proyecto.com.devel/api/login',[
-             'json'=>'{"email":"'."$email".'","password":"'."$password".'"}'
-        ]);*/
-          
+        ]);
+        /* $response = Http::asForm()->post('http://api-rest-proyecto.com.devel/api/login',[
+          'json'=>'{"email":"'."$email".'","password":"'."$password".'"}'
+          ]); */
+
         //$data = $response->json();
         //var_dump($data);
-  
         //$header = $response->header('Autorization');
-        
+
         return $response->json();
     }
-    public function updateEmailPassword($token, $email, $emailRepeat, $passwordNew, $passwordRepeat, $passwordCurrent){
+
+    public function updateEmailPassword($token, $passwordNew, $passwordRepeat, $passwordCurrent) {
 
         $response = Http::withHeaders(
-            ['Authorization'=> $token]
-            )->asForm()->post($this->url.'/api/user/update',[
-            'json'=>[
-                'email'           => $email,
-                'emailRepeat'     => $emailRepeat,
-                'passwordNew'     => $passwordNew,
-                'passwordRepeat'  => $passwordRepeat,
+                        ['Authorization' => $token]
+                )->asForm()->post($this->url . '/api/user/update', [
+            'json' => [
+                'passwordNew' => $passwordNew,
+                'passwordRepeat' => $passwordRepeat,
                 'passwordCurrent' => $passwordCurrent
             ]
-        ]); 
+        ]);
 
         return $response->json();
     }
+
 }

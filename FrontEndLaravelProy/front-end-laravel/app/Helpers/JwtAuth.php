@@ -1,88 +1,92 @@
 <?php
 
 namespace App\Helpers;
+
 use Firebase\JWT\JWT;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
 
-class JwtAuth{
-    
+class JwtAuth {
+
     public $key;
-    
+
     public function __construct() {
         $this->key = 'generando_una_clave_para_el_token';
     }
-    
-    public function signup($email, $password, $getToken = null){   
+
+    public function signup($email, $password, $getToken = null) {
         //Buscar si existe el usuario con sus credenciales
 
-        try{
+        try {
             $user = User::where([
-                 'email'   => $email,
-                 'password'=> $password
-            ])->first();
-        }catch(\Exception $e){
+                        'email' => $email,
+                        'password' => $password
+                    ])->first();
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
-        
+
         //Comprobar si son correctas
         $signup = false;
-        if(is_object($user)){    
+        if (is_object($user)) {
             $signup = true;
         }
         //Generar el token con los datos
-        if($signup){
+        if ($signup) {
             $token = array(
-                'id'   => $user->id,
+                'id' => $user->id,
                 'email' => $user->email,
-                'name'  => $user->name,
+                'name' => $user->name,
                 'surname' => $user->surname,
-                'iat'   => time(),
-                'exp'   => time() + (7*24*60*60)
+                'role' => $user->role,
+                'state' => $user->state,
+                'type' => $user->type,
+                'iat' => time(),
+                'exp' => time() + (7 * 24 * 60 * 60)
             );
 
             $jwt = JWT::encode($token, $this->key, 'HS256');
-            $decoded =JWT::decode($jwt, $this->key, ['HS256']);
+            $decoded = JWT::decode($jwt, $this->key, ['HS256']);
             //Devolver lo datos decodificados o el token en funcion de un parametro.
 
-            if(is_null($getToken)){
+            if (is_null($getToken)) {
                 $data = $jwt;
-            }else{
+            } else {
                 $data = $decoded;
             }
-        }else{
+        } else {
             $data = array(
-                'status'  =>'error',
-                'menssage'=>'El logueo a fallado.'
+                'status' => 'error',
+                'menssage' => 'El logueo a fallado.'
             );
         }
         return $data;
     }
-    
-    public function checkToken($jwt, $getIdentity = false){
+
+    public function checkToken($jwt, $getIdentity = false) {
         $auth = false;
-       
-        try{
+
+        try {
             $jwt = str_replace('"', "", $jwt);
             $decoded = JWT::decode($jwt, $this->key, ['HS256']);
-        }catch(\DomainException $e){
+        } catch (\DomainException $e) {
             $auth = false;
-        }catch(\UnexpectedValueException $ex){
+        } catch (\UnexpectedValueException $ex) {
             $auth = false;
         }
-        
-        if(!empty($decoded) && is_object($decoded)&& isset($decoded->id)){
+
+        if (!empty($decoded) && is_object($decoded) && isset($decoded->id)) {
             $auth = true;
-        }else{
+        } else {
             $auth = false;
         }
-        
-        if($getIdentity){
+
+        if ($getIdentity) {
             return $decoded;
         }
-        
+
         return $auth;
     }
-    
+
 }
